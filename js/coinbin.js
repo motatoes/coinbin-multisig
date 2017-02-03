@@ -1466,6 +1466,7 @@ $(document).ready(function() {
 	$("#signBtn").click(function(){
 		var wifkey = $("#signPrivateKey");
 		var script = $("#signTransaction");
+		var redeemScript = $("#redeemScript").val();
 
 		if(coinjs.addressDecode(wifkey.val())){
 			$(wifkey).parent().removeClass('has-error');
@@ -1484,6 +1485,10 @@ $(document).ready(function() {
 			try {
 				var tx = coinjs.transaction();
 				var t = tx.deserialize(script.val());
+
+	            for (var i = 0; i < t.ins.length; i++) {
+	                t.ins[i].script = coinjs.script(redeemScript);
+	            }
 
 				var signed = t.sign(wifkey.val());
 				$("#signedData textarea").val(signed);

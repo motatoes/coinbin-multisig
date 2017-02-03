@@ -1,3 +1,9 @@
+WARNING
+==================
+
+This repo is a temporary hack to include the multisig partial signing with redeem script feature into coinbin. The problem is described in [this issue](https://github.com/OutCast3k/coinbin/issues/73) and this repo is a temporary fix. To use it just clone this repo and open 'multisig.html'. enter the private key, redeem script and raw transaction to perform a partial signing.
+
+
 coinbin
 =======
 
